@@ -1,0 +1,57 @@
+@import './base/reset.scss';
+@import './base/var.scss';
+@import './base/mixin.scss';
+
+.fade-enter,
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active,
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: 200ms ease-in 100ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: 100ms ease-in;
+}
+
+.rich-text {
+  ul {
+    list-style-type: disc;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+.uni-empty-img {
+  display: block;
+  width: 149px;
+  margin: 50px auto;
+}
+
+.uni-loading {
+  display: block;
+  width: 50px;
+  margin: 50px auto;
+
+  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: loading 1.5s 0.1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

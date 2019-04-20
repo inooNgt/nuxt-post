@@ -1,0 +1,46 @@
+<template>
+  <section class="container">
+    <ul class="post-item">
+      <post-item v-for="item in data" :key="item.id" :item="item"/>
+    </ul>
+  </section>
+</template>
+
+<script>
+import API from '~/utils/api'
+import Logo from '~/components/Logo.vue'
+import PostItem from '~/components/PostItem.vue'
+
+export default {
+  components: {
+    Logo,
+    PostItem
+  },
+  async asyncData(context) {
+    return API.posts({ params: { page: 1, perPage: 10 } }).then(res => {
+      if (res.status === 200) {
+        let { data } = res
+        return { data: data.data }
+      } else {
+        throw Error('load data error')
+      }
+    })
+  },
+  mounted() {},
+  methods: {
+    async loadData(page = 1) {}
+  },
+  loadDataError() {}
+}
+</script>
+
+<style lang="scss">
+@import '~scss/index.scss';
+</style>
+
+
+<style lang='scss' scoped>
+.post-list {
+  min-height: 600px;
+}
+</style>
