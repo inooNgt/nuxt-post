@@ -1,15 +1,8 @@
 @import './var';
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
-}
-
-html,
-body,
-div,
-section,
-article {
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -28,6 +21,11 @@ body {
 
 ul {
   list-style: none;
+}
+
+ul,
+ol {
+  padding-left: 1em;
 }
 
 h1 {

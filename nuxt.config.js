@@ -56,6 +56,7 @@ module.exports = {
      */
     extend(config, ctx) {
       const alias = (config.resolve.alias = config.resolve.alias || {})
+      console.log('alias', alias)
       alias['scss'] = path.resolve(__dirname, 'assets/scss')
     }
   },

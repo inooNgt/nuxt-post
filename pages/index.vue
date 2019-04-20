@@ -1,6 +1,7 @@
 <template>
   <section class="container">
-    <ul class="post-item">
+    <PageNav/>
+    <ul class="post-list">
       <post-item v-for="item in data" :key="item.id" :item="item"/>
     </ul>
   </section>
@@ -8,16 +9,16 @@
 
 <script>
 import API from '~/utils/api'
-import Logo from '~/components/Logo.vue'
 import PostItem from '~/components/PostItem.vue'
+import PageNav from '~/components/PageNav.vue'
 
 export default {
   components: {
-    Logo,
+    PageNav,
     PostItem
   },
   async asyncData(context) {
-    return API.posts({ params: { page: 1, perPage: 10 } }).then(res => {
+    return API.posts({ params: { page: 1, perPage: 999 } }).then(res => {
       if (res.status === 200) {
         let { data } = res
         return { data: data.data }
@@ -42,5 +43,6 @@ export default {
 <style lang='scss' scoped>
 .post-list {
   min-height: 600px;
+  padding: 20px;
 }
 </style>
