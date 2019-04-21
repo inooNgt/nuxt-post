@@ -3,12 +3,14 @@ const path = require('path')
 
 module.exports = {
   mode: 'universal',
-
+  server: {
+    host: '127.0.0.1'
+  },
   /*
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'inoongt',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -56,7 +58,6 @@ module.exports = {
      */
     extend(config, ctx) {
       const alias = (config.resolve.alias = config.resolve.alias || {})
-      console.log('alias', alias)
       alias['scss'] = path.resolve(__dirname, 'assets/scss')
     }
   },

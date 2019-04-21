@@ -14,12 +14,10 @@ export default {
     PageNav
   },
   async asyncData(context) {
-    console.log('asyncData context:', context)
     let id = context.query.id
     return API.postdetail({ params: { id } }).then(res => {
       if (res.status === 200) {
         let { data } = res
-        console.log(data)
         return { post: data }
       }
     })
@@ -29,10 +27,7 @@ export default {
       post: null
     }
   },
-  mounted() {
-    console.log('mounted', this.$route)
-    // this.loadData(this.$route.query.id)
-  },
+  mounted() {},
   methods: {
     loadData(id) {}
   },
