@@ -1,5 +1,5 @@
 const config = {
-  host: 'http://127.0.0.1:3333',
+  host: '',
   keys: {
     token: 'ap.login.token'
   }

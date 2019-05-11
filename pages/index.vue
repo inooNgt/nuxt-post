@@ -18,14 +18,16 @@ export default {
     PostItem
   },
   async asyncData(context) {
-    return API.posts({ params: { page: 1, perPage: 999 } }).then(res => {
-      if (res.status === 200) {
-        let { data } = res
-        return { data: data.data }
-      } else {
-        throw Error('load data error')
-      }
-    })
+    return API.posts({ params: { page: 1, perPage: 999 } })
+      .then(res => {
+        if (res.status === 200) {
+          let { data } = res
+          return { data: data.data }
+        }
+      })
+      .catch(e => {
+        console.log(e)
+      })
   },
   mounted() {},
   methods: {

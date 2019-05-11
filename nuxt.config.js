@@ -60,11 +60,11 @@ module.exports = {
       const alias = (config.resolve.alias = config.resolve.alias || {})
       alias['scss'] = path.resolve(__dirname, 'assets/scss')
     }
-  },
-  proxy: {
-    '/api': {
-      target: 'http://127.0.0.1:3333',
-      changeOrigin: true
-    }
   }
+  // proxy: {
+  //   '/api': {
+  //     target: 'http://127.0.0.1:3333',
+  //     changeOrigin: true
+  //   }
+  // }
 }

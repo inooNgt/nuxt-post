@@ -19,6 +19,8 @@ export default {
       if (res.status === 200) {
         let { data } = res
         return { post: data }
+      } else {
+        console.log('get postdetail error', res)
       }
     })
   },
