@@ -28,6 +28,8 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ### Window 端 nginx 命令
 
+以下命令在 nginx 按装目录下运行
+
 ```shell
 // 启动
 start nginx

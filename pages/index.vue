@@ -11,7 +11,6 @@
 import API from '~/utils/api'
 import PostItem from '~/components/PostItem.vue'
 import PageNav from '~/components/PageNav.vue'
-
 export default {
   components: {
     PageNav,
@@ -28,6 +27,9 @@ export default {
       .catch(e => {
         console.log(e)
       })
+  },
+  data() {
+    return { data: null }
   },
   mounted() {},
   methods: {

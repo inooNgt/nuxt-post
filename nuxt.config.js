@@ -61,9 +61,10 @@ module.exports = {
       alias['scss'] = path.resolve(__dirname, 'assets/scss')
     }
   }
+  // 已废弃，使用nginx代理
   // proxy: {
   //   '/api': {
-  //     target: 'http://127.0.0.1:3333',
+  //     target: 'http://inoongt.tech/',
   //     changeOrigin: true
   //   }
   // }
