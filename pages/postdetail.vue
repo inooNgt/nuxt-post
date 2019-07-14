@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <PageNav/>
+    <PageNav />
     <div class="rich-text detail-content" v-html="post.post_body"></div>
   </section>
 </template>

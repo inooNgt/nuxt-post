@@ -6,20 +6,18 @@
 
 ```bash
 # install dependencies
-$ yarn install
+$ yarn
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+# serve with hot reload at localhost
+$ yarn dev
 
 # build for production and launch server
-$ yarn run build
+$ yarn build
 $ yarn start
 
 # generate static project
 $ yarn run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ### Development Setup
 
@@ -41,8 +39,49 @@ nginx.exe -s stop
 nginx.exe -s reload
 ```
 
+### Linux 端 Nginx 命令
+
+#### 判断 Nginx 配置是否正确
+
+```shell
+nginx -t -c /usr/local/nginx/conf/nginx.conf
+```
+
+#### 启动
+
+```shell
+nginx -c /usr/local/nginx/conf/nginx.conf
+```
+
+#### 快速停止
+
+```shell
+nginx -s stop
+```
+
+#### 配置文件修改重装载命令
+
+```shell
+nginx -s reload
+```
+
 ### PM2 Setup
 
 ```shell
 pm2 start node_modules/nuxt/bin/nuxt.js --name nuxt-post
+```
+
+### 部署方式
+
+Nginx 将 80 端口转发至 nuxt 和 adonis
+
+```
+  location /api
+  {
+      proxy_pass http://adonishost.tech;
+  }
+  location /
+  {
+      proxy_pass http://nuxthost.tech;
+  }
 ```

@@ -1,8 +1,8 @@
 <template>
   <section class="container">
-    <PageNav/>
+    <PageNav />
     <ul class="post-list">
-      <post-item v-for="item in data" :key="item.id" :item="item"/>
+      <post-item v-for="item in data" :key="item.id" :item="item" />
     </ul>
   </section>
 </template>
