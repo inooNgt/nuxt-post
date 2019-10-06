@@ -29,7 +29,9 @@ export default {
       post: null
     }
   },
-  mounted() {},
+  mounted() {
+   
+  },
   methods: {
     loadData(id) {}
   },

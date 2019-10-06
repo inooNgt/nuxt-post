@@ -1,5 +1,5 @@
 const config = {
-  host: '',
+  host: 'http://inoongt.tech',
   keys: {
     token: 'ap.login.token'
   }

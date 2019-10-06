@@ -4,35 +4,33 @@ import APIMAP from '~/utils/apimap'
 import Qs from 'qs'
 
 const http = options => {
-  options = setHeaders(url, options)
-  if (typeof options.url !== 'undefined') {
-    options.url = config.host + options.url
-  }
+  options = setHeaders('', options)
 
   return axios(options)
 }
 
-const get = (url, options) => {
+const get = (url, options, fromServer = false) => {
   options = setHeaders(url, options)
 
-  if (typeof url !== 'undefined') {
+  if (fromServer) {
     url = config.host + url
   }
+  console.log('url', url, fromServer)
   return axios.get(url, options)
 }
 
-const del = (url, options) => {
+const del = (url, options, fromServer = false) => {
   options = setHeaders(url, options)
-  if (typeof url !== 'undefined') {
+  if (fromServer) {
     url = config.host + url
   }
 
   return axios.delete(url, options)
 }
 
-const post = (url, data, options) => {
+const post = (url, data, options, fromServer = false) => {
   options = setHeaders(url, options)
-  if (typeof url !== 'undefined') {
+  if (fromServer) {
     url = config.host + url
   }
 
@@ -44,6 +42,17 @@ const post = (url, data, options) => {
   if (typeof data === 'object' && !disableQs) data = Qs.stringify(data)
 
   return axios.post(url, data, options)
+}
+
+const serviceGet = (url, options) => {
+  console.log('serviceGet', url)
+  return get(url, options, true)
+}
+const serviceDel = (url, options) => {
+  return del(url, options, true)
+}
+const servicePost = (url, data, options) => {
+  return post(url, data, options, true)
 }
 
 function setHeaders(url, options) {
@@ -75,4 +84,6 @@ function checkAuth(url) {
   return result
 }
 
-export { http, get, post, del }
+const servive = { get: serviceGet, del: serviceDel, post: servicePost }
+
+export { http, get, post, del, servive }

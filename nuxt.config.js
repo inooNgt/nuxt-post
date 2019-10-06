@@ -4,7 +4,8 @@ const path = require('path')
 module.exports = {
   mode: 'universal',
   server: {
-    host: '127.0.0.1'
+    host: '127.0.0.1',
+    port: '3000'
   },
   /*
    ** Headers of the page
@@ -39,15 +40,10 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    proxy: true
-  },
+
 
   /*
    ** Build configuration
@@ -60,12 +56,20 @@ module.exports = {
       const alias = (config.resolve.alias = config.resolve.alias || {})
       alias['scss'] = path.resolve(__dirname, 'assets/scss')
     }
+  },
+
+
+  axios: {
+    proxy: true, // 表示开启代理
+    credentials: true // 表示跨域请求时是否需要使用凭证
+  },
+
+  proxy: {
+    '/api': {
+      target: 'http://inoongt.tech', // 目标接口域名
+      pathRewrite: {
+        changeOrigin: true // 表示是否跨域
+      }
+    }
   }
-  // 已废弃，使用nginx代理
-  // proxy: {
-  //   '/api': {
-  //     target: 'http://inoongt.tech/',
-  //     changeOrigin: true
-  //   }
-  // }
 }
