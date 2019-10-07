@@ -63,7 +63,7 @@ module.exports = {
     proxy: true, // 表示开启代理
     credentials: true // 表示跨域请求时是否需要使用凭证
   },
-
+  // 代理请求
   proxy: {
     '/api': {
       target: 'http://inoongt.tech', // 目标接口域名
