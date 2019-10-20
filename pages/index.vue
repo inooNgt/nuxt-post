@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <PageNav />
+    <page-nav />
     <ul class="post-list">
       <post-item v-for="item in data" :key="item.id" :item="item" />
     </ul>
@@ -35,12 +35,10 @@ export default {
   },
   created() {},
   mounted() {},
-  methods: {
-    async loadData(page = 1) {}
-  },
   loadDataError() {}
 }
 </script>
+
 
 <style lang="scss">
 @import '~scss/index.scss';

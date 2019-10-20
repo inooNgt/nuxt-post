@@ -8,17 +8,17 @@ const instance = axios.create({
 });
 
 
-const get = (url, options, fromServer = false) => {
+const get = (url, options) => {
   options = setHeaders(url, options)
   return instance.get(url, options)
 }
 
-const del = (url, options, fromServer = false) => {
+const del = (url, options) => {
   options = setHeaders(url, options)
   return instance.delete(url, options)
 }
 
-const post = (url, data, options, fromServer = false) => {
+const post = (url, data, options) => {
   options = setHeaders(url, options)
   let disableQs =
     options &&
