@@ -27,13 +27,15 @@ export default {
         }
       })
       .catch(e => {
-        console.log('loaded posts error in asyncData',e)
+        console.log('loaded posts error in asyncData',e.message)
       })
   },
   data() {
     return { data: null }
   },
-  created() {},
+  created() {
+    
+  },
   mounted() {},
   loadDataError() {}
 }
