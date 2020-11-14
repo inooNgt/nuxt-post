@@ -2,7 +2,6 @@ const pkg = require('./package')
 const path = require('path')
 
 module.exports = {
-  mode: 'universal',
   server: {
     host: '127.0.0.1',
     port: '3000'
@@ -41,9 +40,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    '@nuxtjs/proxy'
   ],
-
 
   /*
    ** Build configuration
@@ -58,7 +56,6 @@ module.exports = {
     }
   },
 
-
   axios: {
     proxy: true, // 表示开启代理
     credentials: true // 表示跨域请求时是否需要使用凭证
@@ -66,7 +63,7 @@ module.exports = {
   // 代理请求
   proxy: {
     '/api': {
-      target: 'http://inoongt.tech', // 目标接口域名
+      target: 'http://127.0.0.1:3333', // 目标接口
       pathRewrite: {
         changeOrigin: true // 表示是否跨域
       }

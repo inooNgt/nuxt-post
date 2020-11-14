@@ -23,11 +23,11 @@ export default {
           let { data } = res
           return { data: data.data }
         } else {
-          console.log('loaded posts error in asyncData')
+          console.log('loaded posts empty in asyncData')
         }
       })
       .catch(e => {
-        console.log('loaded posts error in asyncData')
+        console.log('loaded posts error in asyncData',e)
       })
   },
   data() {

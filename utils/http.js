@@ -5,8 +5,7 @@ import Qs from 'qs'
 
 const instance = axios.create({
   baseURL: config.host
-});
-
+})
 
 const get = (url, options) => {
   options = setHeaders(url, options)
